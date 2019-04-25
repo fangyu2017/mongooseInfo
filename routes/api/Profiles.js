@@ -98,7 +98,7 @@ router.delete(
         }
       })
       .catch(err => {
-        console.log("err------------", err);
+        console.log("err----", err);
         return res.json({ msg: "删除失败", status: 304 });
       });
   }
