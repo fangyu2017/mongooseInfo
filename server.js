@@ -6,6 +6,7 @@ const passport = require('passport')
 const port = process.env.PORT || 5000
 const db = require('./config/keys').mongoURI
 const users = require('./routes/api/User')
+const Profiles = require('./routes/api/Profiles')
 
 //链接数据库
 mongoose
@@ -20,10 +21,11 @@ mongoose
  app.use(bodyparser.json()) 
 // 使用router
 app.use('/api/users', users)
-
+app.use('/api/profiles', Profiles)
 // 使用passport 初始化
 app.use(passport.initialize())
 require('./config/passport')(passport)
+
 //监听数据接口
 app.listen(port, () => {
   console.log(`server is running ${port}`);
